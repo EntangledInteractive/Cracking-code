@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class tutorial : MonoBehaviour {
+public class mytutorial : MonoBehaviour {
     public Image[] tutImage;
     public int tutNumber = 0;
     private LevelControla levCont;
@@ -28,7 +28,7 @@ public class tutorial : MonoBehaviour {
         {
             Debug.Log("check tutorial");
             GloableVeribale.TutorialEnabled = false;
-            levCont.SetTutorialPanel();
+            //levCont.SetTutorialPanel();
             PlayerPrefsManager.SetTutorialOnOff(0);
             PlayerPrefs.Save();
         }else 

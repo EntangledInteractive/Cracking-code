@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using ExaGames.Common;
+using HardCodeLab.TutorialMaster;
 
 public class LevelControla : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class LevelControla : MonoBehaviour
     public Text TimeToNextLifeText;
     // coins
     public Text coin;
-    public GameObject TutorialPanel;
+    //public GameObject TutorialPanel;
     
 
     public void OnLivesChanged()
@@ -166,12 +167,9 @@ public class LevelControla : MonoBehaviour
     {
         if (GloableVeribale.TutorialEnabled == true)
         {
-            TutorialPanel.SetActive(true);
+            tutorial.Start(0);
         }
-        else
-        {
-            TutorialPanel.SetActive(false);
-        }
+        
     }
 
 }
