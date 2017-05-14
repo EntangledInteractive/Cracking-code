@@ -23,6 +23,8 @@ public class LevelControla : MonoBehaviour
     // coins
     public Text coin;
     //public GameObject TutorialPanel;
+    public GameObject tutTextbox;
+    public Button skipTutButton;
     
 
     public void OnLivesChanged()
@@ -167,9 +169,22 @@ public class LevelControla : MonoBehaviour
     {
         if (GloableVeribale.TutorialEnabled == true)
         {
+            skipTutButton.gameObject.SetActive(true);
+            tutTextbox.gameObject.SetActive(true);
             tutorial.Start(0);
-        }
+        } 
         
+    }
+    public void HidtutTextbox()
+    {
+        
+            tutTextbox.gameObject.SetActive(false);
+        skipTutButton.gameObject.SetActive(false);
+
+    }
+    public void TutStop()
+    {
+        tutorial.Stop();
     }
 
 }
