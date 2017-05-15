@@ -17,13 +17,14 @@ public class LevelControla : MonoBehaviour
     public Sprite EndCB;
     public Text devicesLeft;
     //life system
-    public LivesManager LivesManager;   
-    public Text LivesText;   
+    public LivesManager LivesManager;
+    public Text LivesText;
     public Text TimeToNextLifeText;
     // coins
     public Text coin;
-    //public GameObject TutorialPanel;
-    
+    public GameObject TutUIBacround;
+    public Button SkipTut;
+
 
     public void OnLivesChanged()
     {
@@ -43,7 +44,7 @@ public class LevelControla : MonoBehaviour
         {
             LivesManager.ConsumeLife();
         }
-       
+
     }
     void Awake()
     {
@@ -80,7 +81,7 @@ public class LevelControla : MonoBehaviour
     {
         coin.text = PlayerPrefsManager.GetCoins().ToString();
         playerLevel.text = "Level " + GloableVeribale.PlayLevel.ToString();
-       // devicesLeft.text = PlayerPrefsManager.GetDevicesLeft().ToString();
+        // devicesLeft.text = PlayerPrefsManager.GetDevicesLeft().ToString();
         if (GloableVeribale.PlayLevel > 1)
         {
 
@@ -98,7 +99,8 @@ public class LevelControla : MonoBehaviour
             if (LivesManager.Lives > 0)
             {
                 StartB.interactable = true;
-            }else
+            }
+            else
             {
                 StartB.interactable = false;
             }
@@ -111,10 +113,11 @@ public class LevelControla : MonoBehaviour
             StartB.interactable = false;
         }
 
-        if(LivesManager.Lives == 5)
+        if (LivesManager.Lives == 5)
         {
             TimeToNextLifeText.gameObject.SetActive(false);
-        }else
+        }
+        else
         {
             TimeToNextLifeText.gameObject.SetActive(true);
         }
@@ -167,9 +170,20 @@ public class LevelControla : MonoBehaviour
     {
         if (GloableVeribale.TutorialEnabled == true)
         {
+            TutUIBacround.SetActive(true);
+            SkipTut.gameObject.SetActive(true);
             tutorial.Start(0);
         }
-        
+
+    }
+    public void hideTutUiPanel()
+    {
+        TutUIBacround.SetActive(false);
+        SkipTut.gameObject.SetActive(false);
+    }
+    public void SkipTutButton()
+    {
+        tutorial.Stop();
     }
 
 }
