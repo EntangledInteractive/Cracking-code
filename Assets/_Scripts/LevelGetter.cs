@@ -87,7 +87,7 @@ public class LevelGetter : MonoBehaviour
                 GloableVeribale.Instance.TimeForTimerCallange = MyLevel.TimeForTimerCallange;
             }
             else {
-                TimeChallange.color = new Vector4(.5f, 5f, .5f, .5f);
+                TimeChallange.color = new Vector4(.1f, .1f, .1f, .1f);
                 GloableVeribale.Instance.TimerCallange = false;
             }
             if (MyLevel.DesaperingCallange){
@@ -96,7 +96,7 @@ public class LevelGetter : MonoBehaviour
                 GloableVeribale.Instance.DesaperingNumber = MyLevel.DesaperingNumber;
             }
             else {
-                DisaperingChallange.color = new Vector4(.5f, 5f, .5f, .5f);
+                DisaperingChallange.color = new Vector4(.1f, .1f, .1f, .1f);
                 GloableVeribale.Instance.DesaperingCallange = false;
 
             }
@@ -109,7 +109,7 @@ public class LevelGetter : MonoBehaviour
 
             }
             else {
-                ExpandingChallange.color = new Vector4(.5f, 5f, .5f, .5f);
+                ExpandingChallange.color = new Vector4(.1f, .1f, .1f, .1f);
                 GloableVeribale.Instance.ExpandinSlotChallange = false;
             }
             if (MyLevel.ColourShift)
@@ -119,7 +119,7 @@ public class LevelGetter : MonoBehaviour
 
             }
             else {
-                ColourShiftChallange.color = new Vector4(.5f, 5f, .5f, .5f);
+                ColourShiftChallange.color = new Vector4(.1f, .1f, .1f, .1f);
                 GloableVeribale.Instance.ColourShift = false;
             }
             for(int i =0; i <Stars.Length; i++)
