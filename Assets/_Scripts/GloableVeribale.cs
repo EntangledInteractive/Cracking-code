@@ -219,18 +219,48 @@ public class GloableVeribale : MonoBehaviour
     void OnApplicationPause()
     {
         int tutTF;
+        int tutLS;
+        int tutGS;
+        int tutES;
         Debug.Log("pausing the game");
         PlayerPrefsManager.SetCoins(Coins);
-        if(TutorialEnabled == true)
+        if (TutorialEnabled == true)
         {
             tutTF = 1;
         }
         else
         {
             tutTF = 0;
-            
+
         }
         PlayerPrefsManager.SetTutorialOnOff(tutTF);
+        if (TutLS == true)
+        {
+            tutLS = 1;
+        }
+        else
+        {
+            tutLS = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutLS);
+        if (TutGS == true)
+        {
+            tutGS = 1;
+        }
+        else
+        {
+            tutGS = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutGS);
+        if (TutES == true)
+        {
+            tutES = 1;
+        }
+        else
+        {
+            tutES = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutES);
         PlayerPrefs.Save();
     }
 }
