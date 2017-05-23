@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 27c12f99c90e40c49981c5a54804002f
-timeCreated: 1495523800
+guid: bd011093e25588d42824b94d60fafd93
+timeCreated: 1495524264
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pageflick_0
-    21300002: pageflick_1
-    21300004: pageflick_2
-    21300006: pageflick_3
-    21300008: pageflick_4
+    21300000: pageflick2_0
+    21300002: pageflick2_1
+    21300004: pageflick2_2
+    21300006: pageflick2_3
+    21300008: pageflick2_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -29,11 +29,11 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -91,33 +91,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pageflick_0
+      name: pageflick2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
+        width: 126
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: pageflick_1
+      name: pageflick2_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 128
+        width: 127
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: pageflick_2
+      name: pageflick2_2
       rect:
         serializedVersion: 2
         x: 256
@@ -125,12 +125,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: pageflick_3
+      name: pageflick2_3
       rect:
         serializedVersion: 2
         x: 384
@@ -138,12 +138,12 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     - serializedVersion: 2
-      name: pageflick_4
+      name: pageflick2_4
       rect:
         serializedVersion: 2
         x: 512
@@ -151,10 +151,10 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 1, w: 0}
       outline: []
-      tessellationDetail: -1
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

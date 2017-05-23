@@ -17,6 +17,9 @@ public class GloableVeribale : MonoBehaviour
     public static bool PlayOn = false;
     public static bool SfxOn = true;
     public static bool TutorialEnabled = true;
+    public static bool TutLS = true;
+    public static bool TutGS = true;
+    public static bool TutES = true;
 
     //Game Level infromation
     public int LevelNumber;
@@ -95,7 +98,7 @@ public class GloableVeribale : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-        if (PlayerPrefs.HasKey("Coins"))
+        if (PlayerPrefs.HasKey(PlayerPrefsManager.CoinString()))
         {
             //Debug.Log("there is coins");
             Coins = PlayerPrefsManager.GetCoins();
@@ -107,7 +110,51 @@ public class GloableVeribale : MonoBehaviour
             Coins = PlayerPrefsManager.GetCoins();
             PlayerPrefs.Save();
         }
-        
+        if (PlayerPrefs.HasKey(PlayerPrefsManager.TutorialOnOffString()))
+        {
+            if(PlayerPrefsManager.GetTutorialOnOff() == 1)
+            {
+                TutorialEnabled = true;
+            }else
+            {
+                TutorialEnabled = false;
+            }
+        }
+        if (PlayerPrefs.HasKey(PlayerPrefsManager.TutLSString()))
+        {
+            if (PlayerPrefsManager.GetTutLS() == 1)
+            {
+                TutLS = true;
+            }
+            else
+            {
+                TutLS = false;
+            }
+        }
+        if (PlayerPrefs.HasKey(PlayerPrefsManager.TutGSString()))
+        {
+            if (PlayerPrefsManager.GetTutGS() == 1)
+            {
+                TutGS = true;
+            }
+            else
+            {
+                TutGS = false;
+            }
+        }
+        if (PlayerPrefs.HasKey(PlayerPrefsManager.TutESString()))
+        {
+            if (PlayerPrefsManager.GetTutES() == 1)
+            {
+                TutES = true;
+            }
+            else
+            {
+                TutES = false;
+            }
+        }
+
+
     }
     
     
@@ -171,8 +218,19 @@ public class GloableVeribale : MonoBehaviour
     }
     void OnApplicationPause()
     {
+        int tutTF;
         Debug.Log("pausing the game");
         PlayerPrefsManager.SetCoins(Coins);
+        if(TutorialEnabled == true)
+        {
+            tutTF = 1;
+        }
+        else
+        {
+            tutTF = 0;
+            
+        }
+        PlayerPrefsManager.SetTutorialOnOff(tutTF);
         PlayerPrefs.Save();
     }
 }

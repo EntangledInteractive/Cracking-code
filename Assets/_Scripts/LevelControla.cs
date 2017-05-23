@@ -68,7 +68,11 @@ public class LevelControla : MonoBehaviour
             Clipboard.sprite = MiddleCB;
             UpB.gameObject.SetActive(true);
         }
-        SetTutorialPanel();
+        if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
+        {
+            Debug.Log("LS tut loaded");
+            SetTutorialPanel();
+        }
     }
 
     void Start()
@@ -168,7 +172,7 @@ public class LevelControla : MonoBehaviour
     }
     public void SetTutorialPanel()
     {
-        if (GloableVeribale.TutorialEnabled == true)
+        if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
         {
             TutUIBacround.SetActive(true);
             SkipTut.gameObject.SetActive(true);
@@ -180,6 +184,7 @@ public class LevelControla : MonoBehaviour
     {
         TutUIBacround.SetActive(false);
         SkipTut.gameObject.SetActive(false);
+        GloableVeribale.TutLS = false;
     }
     public void SkipTutButton()
     {

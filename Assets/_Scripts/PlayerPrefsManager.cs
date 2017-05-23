@@ -13,6 +13,9 @@ public class PlayerPrefsManager : MonoBehaviour
     const string COINS = "Coins";
     const string SFX = "Sfx";
     const string TUTORIALON = "Tutorian_ON";
+    const string TUTLS = "TutSL";
+    const string TUTGS = "TutGS";
+    const string TUTES = "TutES";
     public static void SetMasterVolume(float volume)
     {
         if (volume >= 0f && volume <= 1f)
@@ -158,4 +161,40 @@ public class PlayerPrefsManager : MonoBehaviour
     {
         return TUTORIALON;
     }    
+    public static void SetTutLS(int TutLSonOff)
+    {
+        PlayerPrefs.SetInt(TUTLS, TutLSonOff);
+    }
+    public static int GetTutLS()
+    {
+        return PlayerPrefs.GetInt(TUTLS);
+    }
+    public static string TutLSString()
+    {
+        return TUTLS;
+    }
+    public static void SetTutGS(int TutGSonOff)
+    {
+        PlayerPrefs.SetInt(TUTGS, TutGSonOff);
+    }
+    public static int GetTutGS()
+    {
+        return PlayerPrefs.GetInt(TUTGS);
+    }
+    public static string TutGSString()
+    {
+        return TUTGS;
+    }
+    public static void SetTutES(int TutESonOff)
+    {
+        PlayerPrefs.SetInt(TUTES, TutESonOff);
+    }
+    public static int GetTutES()
+    {
+        return PlayerPrefs.GetInt(TUTES);
+    }
+    public static string TutESString()
+    {
+        return TUTES;
+    }
 }
