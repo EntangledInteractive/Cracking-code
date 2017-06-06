@@ -193,7 +193,7 @@ public class GameStart : MonoBehaviour
         }
         if (Unlock)
         {
-            this.GetComponent<Animator>().SetBool("UnlockActive", true);
+            //this.GetComponent<Animator>().SetBool("UnlockActive", true);
             for (int i = 0; i < Slots; i++)
             {
                 ToolLights[i].GetComponent<Button>().enabled = true;
@@ -202,7 +202,7 @@ public class GameStart : MonoBehaviour
         }
         else
         {
-            this.GetComponent<Animator>().SetBool("UnlockActive", false);
+            //this.GetComponent<Animator>().SetBool("UnlockActive", false);
             for (int i = 0; i < Slots; i++)
             {
                 ToolLights[i].GetComponent<Button>().interactable = false;

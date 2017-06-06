@@ -39,8 +39,7 @@ public class LevelManager : MonoBehaviour {
     {
         Scene myScene = SceneManager.GetSceneByName(name);
         SceneManager.SetActiveScene(myScene);
-        Scene scene = SceneManager.GetActiveScene();
-        Debug.Log("Active scene is '" + scene.name + "'.");
+        
     }
     
 

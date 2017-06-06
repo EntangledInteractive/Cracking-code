@@ -52,7 +52,7 @@ public class backround : MonoBehaviour {
     public void callAddtiveScene(string name)
     {
         //SceneManager.activeSceneChanged += SceneManager_activeSceneChanged;
-        myLevelManager.AdditiveScene(name);
+        myLevelManager.LoadScene(name);
     }
     //public void CheckingUnloadLevel(Scene firstLevel, Scene secondLevel)
     //{
