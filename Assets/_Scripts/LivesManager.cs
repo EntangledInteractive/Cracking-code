@@ -2,29 +2,35 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ExaGames.Common {
+namespace ExaGames.Common
+{
 	/// <summary>
 	/// Lifes system manager by ExaGames.
 	/// </summary>
 	/// <coauthor>Eduardo Casillas</coauthor>
 	/// <coauthor>Nicolás Michelini</coauthor>
-	public class LivesManager : MonoBehaviour {
-		#region Constants
-		/// <summary>
-		/// Key to save the number of currently available lives in the player preferences file.
-		/// </summary>
-		private const string LIVES_SAVEKEY = "ExaGames.Common.Lives";
+    
+
+    public class LivesManager : MonoBehaviour {
+       
+
+        #region Constants
+        /// <summary>
+        /// Key to save the number of currently available lives in the player preferences file.
+        /// </summary>
+        private const string LIVES_SAVEKEY = "ExaGames.Common.Lives";
 		/// <summary>
 		/// Key to save the recovery start time in the player preferences file.
 		/// </summary>
 		private const string RECOVERY_TIME_SAVEKEY = "ExaGames.Common.LivesRecoveryTime";
-		#endregion
-
-		#region Fields
-		/// <summary>
-		/// Maximum number of lives.
-		/// </summary>
-		public int MaxLives = 5;
+        public static LivesManager Instance = null;
+        #endregion
+       
+        #region Fields
+            /// <summary>
+            /// Maximum number of lives.
+            /// </summary>
+        public int MaxLives = 5;
 		/// <summary>
 		/// Time to recover one life in minutes.
 		/// </summary>
@@ -101,9 +107,19 @@ namespace ExaGames.Common {
 		/// with full lives if this is the first time she plays.
 		/// </summary>
 		private void Awake() {
-			if(FindObjectsOfType<LivesManager>().Length > 1) {
-				Debug.LogError("More than one LivesManager found in scene.");
-			}
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                //print("Duplicate Game Controller lives manager");
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+   //         if (FindObjectsOfType<LivesManager>().Length > 1) {
+			//	Debug.LogError("More than one LivesManager found in scene.");
+			//}
 			if(PlayerPrefs.HasKey(LIVES_SAVEKEY) && PlayerPrefs.HasKey(RECOVERY_TIME_SAVEKEY)) {
 				lives = PlayerPrefs.GetInt(LIVES_SAVEKEY);
 				recoveryStartTime = new DateTime(long.Parse(PlayerPrefs.GetString(RECOVERY_TIME_SAVEKEY)));

@@ -10,11 +10,10 @@ public class LevelControla : MonoBehaviour
     public Button UpB;
     public Button DownB;
     public Button StartB;
+    public Sprite GoPlay;
+    public Sprite StopPlay;
     //private static bool DoesLevelExist = true;
-    public Image Clipboard;
-    public Sprite BegingCB;
-    public Sprite MiddleCB;
-    public Sprite EndCB;
+   
     public Text devicesLeft;
     //life system
     public LivesManager LivesManager;
@@ -50,27 +49,27 @@ public class LevelControla : MonoBehaviour
     {
         if (GloableVeribale.PlayLevel >= GloableVeribale.NumberOfLevels)
         {
-            Clipboard.sprite = EndCB;
+            
             UpB.gameObject.SetActive(false);
         }
         else
         {
-            Clipboard.sprite = MiddleCB;
+           
             UpB.gameObject.SetActive(true);
         }
         if (GloableVeribale.PlayLevel < 2)
         {
-            Clipboard.sprite = BegingCB;
+           
             UpB.gameObject.SetActive(true);
         }
         else
         {
-            Clipboard.sprite = MiddleCB;
+            
             UpB.gameObject.SetActive(true);
         }
         if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
         {
-            Debug.Log("LS tut loaded");
+           // Debug.Log("LS tut loaded");
             SetTutorialPanel();
         }
     }
@@ -103,10 +102,12 @@ public class LevelControla : MonoBehaviour
             if (LivesManager.Lives > 0)
             {
                 StartB.interactable = true;
+                StartB.GetComponent<Image>().sprite = GoPlay;
             }
             else
             {
                 StartB.interactable = false;
+                StartB.GetComponent<Image>().sprite = StopPlay;
             }
             UpB.interactable = true;
 
@@ -115,6 +116,7 @@ public class LevelControla : MonoBehaviour
         else
         {
             StartB.interactable = false;
+            StartB.GetComponent<Image>().sprite = StopPlay;
         }
 
         if (LivesManager.Lives == 5)
@@ -135,14 +137,14 @@ public class LevelControla : MonoBehaviour
         {
             GloableVeribale.PlayLevel = GloableVeribale.NumberOfLevels;
             UpB.interactable = false;
-            Clipboard.sprite = EndCB;
+           
             UpB.gameObject.SetActive(false);
         }
         else
         {
             UpB.gameObject.SetActive(true);
             UpB.interactable = true;
-            Clipboard.sprite = MiddleCB;
+            
         }
         PlayerPrefs.SetInt("MaxPlayerLevel", GloableVeribale.PlayLevel);
         PlayerPrefs.Save();
@@ -156,14 +158,14 @@ public class LevelControla : MonoBehaviour
         {
             GloableVeribale.PlayLevel = 1;
             DownB.interactable = false;
-            Clipboard.sprite = BegingCB;
+           
             UpB.gameObject.SetActive(true);
         }
         else
         {
             UpB.gameObject.SetActive(true);
             UpB.interactable = true;
-            Clipboard.sprite = MiddleCB;
+            
         }
         PlayerPrefs.SetInt("MaxPlayerLevel", GloableVeribale.PlayLevel);
         PlayerPrefs.Save();

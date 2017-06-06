@@ -64,7 +64,7 @@ public class MusicManager : MonoBehaviour {
         musictest = OnOff;
         if (OnOff)
         {
-            print("music on gv");
+           // print("music on gv");
             PlayerPrefsManager.SetMasterVolume(1);
             PlayerPrefs.Save();
         
@@ -74,7 +74,7 @@ public class MusicManager : MonoBehaviour {
         }
         else
         {
-            print("music off gv");
+            //print("music off gv");
             PlayerPrefsManager.SetMasterVolume(0);
             PlayerPrefs.Save();
             MusicVolume = PlayerPrefsManager.GetMasterVolume();

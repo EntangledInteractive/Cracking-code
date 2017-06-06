@@ -62,7 +62,7 @@ public class GloableVeribale : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
-            print("Duplicate Game Controller self-destructing!");
+            //print("Duplicate Game Controller self-destructing!");
         }
         else
         {
@@ -181,12 +181,12 @@ public class GloableVeribale : MonoBehaviour
             if(PlayerPrefsManager.GetTutorialOnOff() == 1 )
             {
                 TutorialEnabled = true;
-                Debug.Log("checking if tutorial are on");
+                //Debug.Log("checking if tutorial are on");
             }
             else
             {
                 TutorialEnabled = false;
-                Debug.Log("checking if tutorial are off");
+                //Debug.Log("checking if tutorial are off");
             }
             
         }
@@ -222,7 +222,7 @@ public class GloableVeribale : MonoBehaviour
         int tutLS;
         int tutGS;
         int tutES;
-        Debug.Log("pausing the game");
+        //Debug.Log("pausing the game");
         PlayerPrefsManager.SetCoins(Coins);
         if (TutorialEnabled == true)
         {

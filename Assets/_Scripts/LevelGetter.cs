@@ -65,7 +65,7 @@ public class LevelGetter : MonoBehaviour
         {
             MyLevel = GameObject.Find("Level " + GloableVeribale.PlayLevel).GetComponent<LevelSettings>();
           
-            NumberOfColour.text =MyLevel.NumberOfColours.ToString();
+            
             MyLevel.LevelStars = PlayerPrefsManager.GetLevelStars(MyLevel.LevelNumber);
             // this load the information for the level ever time theplayer move up or down a level
             NumberOfSlots.text = MyLevel.NumberOfSlots.ToString();

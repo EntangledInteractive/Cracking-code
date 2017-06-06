@@ -1038,7 +1038,7 @@ public class TutorialMasterScript : MonoBehaviour
         {
             if (frame_data.useTimer)
             {
-                Debug.Log(this);
+               // Debug.Log(this);
                 StartCoroutine(timer_start());
             }
         }
