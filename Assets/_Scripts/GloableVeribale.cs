@@ -49,6 +49,9 @@ public class GloableVeribale : MonoBehaviour
 
     public int testint;
     public bool tutTest;
+    public bool TestLT;
+    public bool TestGT;
+    public bool TestET;
     public int coinTest;
     
     
@@ -112,16 +115,26 @@ public class GloableVeribale : MonoBehaviour
         }
         if (PlayerPrefs.HasKey(PlayerPrefsManager.TutorialOnOffString()))
         {
-            if(PlayerPrefsManager.GetTutorialOnOff() == 1)
+            Debug.Log("Found TT String");
+            if (PlayerPrefsManager.GetTutorialOnOff() == 1)
             {
                 TutorialEnabled = true;
             }else
             {
                 TutorialEnabled = false;
             }
+        }else
+        {
+            PlayerPrefsManager.SetTutorialOnOff(1);
+            if (PlayerPrefsManager.GetTutorialOnOff() == 1)
+            {
+                TutorialEnabled = true;
+            }
+            PlayerPrefs.Save();
         }
         if (PlayerPrefs.HasKey(PlayerPrefsManager.TutLSString()))
         {
+            Debug.Log("Found LS String");
             if (PlayerPrefsManager.GetTutLS() == 1)
             {
                 TutLS = true;
@@ -130,9 +143,18 @@ public class GloableVeribale : MonoBehaviour
             {
                 TutLS = false;
             }
+        }else
+        {
+            PlayerPrefsManager.SetTutLS(1);
+            if (PlayerPrefsManager.GetTutLS() == 1)
+            {
+                TutLS = true;
+            }
+            PlayerPrefs.Save();
         }
         if (PlayerPrefs.HasKey(PlayerPrefsManager.TutGSString()))
         {
+            Debug.Log("Found GS String");
             if (PlayerPrefsManager.GetTutGS() == 1)
             {
                 TutGS = true;
@@ -142,8 +164,18 @@ public class GloableVeribale : MonoBehaviour
                 TutGS = false;
             }
         }
+        else
+        {
+            PlayerPrefsManager.SetTutGS(1);
+            if (PlayerPrefsManager.GetTutGS() == 1)
+            {
+                TutGS = true;
+            }
+            PlayerPrefs.Save();
+        }
         if (PlayerPrefs.HasKey(PlayerPrefsManager.TutESString()))
         {
+            Debug.Log("Found ES String");
             if (PlayerPrefsManager.GetTutES() == 1)
             {
                 TutES = true;
@@ -152,6 +184,15 @@ public class GloableVeribale : MonoBehaviour
             {
                 TutES = false;
             }
+        }
+        else
+        {
+            PlayerPrefsManager.SetTutES(1);
+            if (PlayerPrefsManager.GetTutES() == 1)
+            {
+                TutES = true;
+            }
+            PlayerPrefs.Save();
         }
 
 
@@ -215,6 +256,56 @@ public class GloableVeribale : MonoBehaviour
         coinTest = Coins;
         Sfxtest = SfxOn;
         tutTest = TutorialEnabled;
+        TestLT = TutLS;
+        TestGT = TutGS;
+        TestET = TutES;
+    }
+   static public void SaveTut()
+    {
+        int tutTF;
+        int tutLS;
+        int tutGS;
+        int tutES;
+        //Debug.Log("pausing the game");
+        PlayerPrefsManager.SetCoins(Coins);
+        if (TutorialEnabled == true)
+        {
+            tutTF = 1;
+        }
+        else
+        {
+            tutTF = 0;
+
+        }
+        PlayerPrefsManager.SetTutorialOnOff(tutTF);
+        if (TutLS == true)
+        {
+            tutLS = 1;
+        }
+        else
+        {
+            tutLS = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutLS);
+        if (TutGS == true)
+        {
+            tutGS = 1;
+        }
+        else
+        {
+            tutGS = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutGS);
+        if (TutES == true)
+        {
+            tutES = 1;
+        }
+        else
+        {
+            tutES = 0;
+        }
+        PlayerPrefsManager.SetTutLS(tutES);
+        PlayerPrefs.Save();
     }
     void OnApplicationPause()
     {

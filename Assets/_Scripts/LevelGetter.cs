@@ -8,7 +8,7 @@ public class LevelGetter : MonoBehaviour
     //	public int StarLevel;
     //	public Text MyLevel;
     //	public GameObject CurrentLevel;
-    public Text NumberOfColour;
+   // public Text NumberOfColour;
     private LevelSettings MyLevel;
     //private GloableVeribale LevelInfo;
     public Text NumberOfTrys;

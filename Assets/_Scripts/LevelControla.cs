@@ -13,7 +13,7 @@ public class LevelControla : MonoBehaviour
     public Sprite GoPlay;
     public Sprite StopPlay;
     //private static bool DoesLevelExist = true;
-   
+
     public Text devicesLeft;
     //life system
     public LivesManager LivesManager;
@@ -23,6 +23,7 @@ public class LevelControla : MonoBehaviour
     public Text coin;
     public GameObject TutUIBacround;
     public Button SkipTut;
+    public Button StartTut;
 
 
     public void OnLivesChanged()
@@ -49,27 +50,27 @@ public class LevelControla : MonoBehaviour
     {
         if (GloableVeribale.PlayLevel >= GloableVeribale.NumberOfLevels)
         {
-            
+
             UpB.gameObject.SetActive(false);
         }
         else
         {
-           
+
             UpB.gameObject.SetActive(true);
         }
         if (GloableVeribale.PlayLevel < 2)
         {
-           
+
             UpB.gameObject.SetActive(true);
         }
         else
         {
-            
+
             UpB.gameObject.SetActive(true);
         }
         if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
         {
-           // Debug.Log("LS tut loaded");
+            // Debug.Log("LS tut loaded");
             SetTutorialPanel();
         }
     }
@@ -83,7 +84,7 @@ public class LevelControla : MonoBehaviour
     void Update()
     {
         coin.text = PlayerPrefsManager.GetCoins().ToString();
-        playerLevel.text = "Level " + GloableVeribale.PlayLevel.ToString();
+        playerLevel.text = "Safe " + GloableVeribale.PlayLevel.ToString();
         // devicesLeft.text = PlayerPrefsManager.GetDevicesLeft().ToString();
         if (GloableVeribale.PlayLevel > 1)
         {
@@ -137,14 +138,14 @@ public class LevelControla : MonoBehaviour
         {
             GloableVeribale.PlayLevel = GloableVeribale.NumberOfLevels;
             UpB.interactable = false;
-           
+
             UpB.gameObject.SetActive(false);
         }
         else
         {
             UpB.gameObject.SetActive(true);
             UpB.interactable = true;
-            
+
         }
         PlayerPrefs.SetInt("MaxPlayerLevel", GloableVeribale.PlayLevel);
         PlayerPrefs.Save();
@@ -158,14 +159,14 @@ public class LevelControla : MonoBehaviour
         {
             GloableVeribale.PlayLevel = 1;
             DownB.interactable = false;
-           
+
             UpB.gameObject.SetActive(true);
         }
         else
         {
             UpB.gameObject.SetActive(true);
             UpB.interactable = true;
-            
+
         }
         PlayerPrefs.SetInt("MaxPlayerLevel", GloableVeribale.PlayLevel);
         PlayerPrefs.Save();
@@ -174,12 +175,11 @@ public class LevelControla : MonoBehaviour
     }
     public void SetTutorialPanel()
     {
-        if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
-        {
-            TutUIBacround.SetActive(true);
-            SkipTut.gameObject.SetActive(true);
-            tutorial.Start(0);
-        }
+        StartTut.gameObject.SetActive(true);
+        TutUIBacround.SetActive(true);
+        SkipTut.gameObject.SetActive(true);
+        tutorial.Start(0);
+
 
     }
     public void hideTutUiPanel()
@@ -187,10 +187,22 @@ public class LevelControla : MonoBehaviour
         TutUIBacround.SetActive(false);
         SkipTut.gameObject.SetActive(false);
         GloableVeribale.TutLS = false;
+        StartTut.gameObject.SetActive(false);
+        GloableVeribale.SaveTut();
+        PlayerPrefs.Save();
     }
     public void SkipTutButton()
     {
         tutorial.Stop();
+        StartTut.gameObject.SetActive(false);
+        GloableVeribale.SaveTut();
+        PlayerPrefs.Save();
     }
+    public void HideStartTut()
+    {
+        StartTut.gameObject.SetActive(false);
+        PlayerPrefs.Save();
+    }
+   
 
 }
