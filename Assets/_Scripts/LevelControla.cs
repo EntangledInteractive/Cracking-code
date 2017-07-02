@@ -68,10 +68,11 @@ public class LevelControla : MonoBehaviour
 
             UpB.gameObject.SetActive(true);
         }
-        if (GloableVeribale.TutorialEnabled == true && GloableVeribale.TutLS == true)
+        if (GloableVeribale.TutorialEnabled == true )
         {
             // Debug.Log("LS tut loaded");
             SetTutorialPanel();
+            GloableVeribale.PlayLevel = 1;
         }
     }
 

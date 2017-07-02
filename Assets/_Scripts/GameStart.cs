@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using HardCodeLab.TutorialMaster;
 
 public class GameStart : MonoBehaviour
 {
@@ -55,8 +56,10 @@ public class GameStart : MonoBehaviour
     public GameObject UnlockButton;
     public Button BUnlock;
     public bool AnimFinshed = false;
-    //check the player has wun on the last try
+    //check the player has won on the last try
     private bool LastTryWin=false;
+    //game tut 
+    public Button SkipTut;
     // Use this for initialization
     void OnGameStart()
     {
@@ -141,7 +144,12 @@ public class GameStart : MonoBehaviour
         // OnGameStart();
 
     }
+    public void SetTutorialPanel()
+    {
 
+        SkipTut.gameObject.SetActive(true);
+        tutorial.Start(0);
+    }
     // Update is called once per frame
     void Update()
     {

@@ -17,6 +17,8 @@ public class GloableVeribale : MonoBehaviour
     public static bool PlayOn = false;
     public static bool SfxOn = true;
     public static bool TutorialEnabled = true;
+    public static int TutColourNumber = 0;
+
     public static bool TutLS = true;
     public static bool TutGS = true;
     public static bool TutES = true;
@@ -49,9 +51,7 @@ public class GloableVeribale : MonoBehaviour
 
     public int testint;
     public bool tutTest;
-    public bool TestLT;
-    public bool TestGT;
-    public bool TestET;
+    public int testTutColour;
     public int coinTest;
     
     
@@ -256,9 +256,8 @@ public class GloableVeribale : MonoBehaviour
         coinTest = Coins;
         Sfxtest = SfxOn;
         tutTest = TutorialEnabled;
-        TestLT = TutLS;
-        TestGT = TutGS;
-        TestET = TutES;
+        testTutColour = TutColourNumber;
+        
     }
    static public void SaveTut()
     {

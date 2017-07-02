@@ -34,67 +34,96 @@ public class HidenColour : MonoBehaviour
         }
         GameStart.Unlocked(false);
     }
-	public void PickColour ()
-	{
-        
-		ShowColour = false;
-		BlockNumber = 6;
-        //CurrentLevel = GloableVeribale.PlayLevel;
-		while (BlockNumber == 6) {
-			RandomColour = Random.Range (0, 6);
-		
-			switch (RandomColour) {
-			case 0:
-				if (GloableVeribale.Instance.BlueBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;
-			case 1:
-				if (GloableVeribale.Instance.GreenBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;
-			case 2:
-				if (GloableVeribale.Instance.OrangeBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;
-			case 3:
-				if (GloableVeribale.Instance.PurpleBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;
-			case 4:
-				if (GloableVeribale.Instance.YellowBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;
-			case 5:
-				if (GloableVeribale.Instance.RedBlock) {
-					this.gameObject.GetComponent<Image> ().sprite = NewColourChanger.Instance.Colour[RandomColour];
-					BlockNumber = RandomColour;
-				
-				}
-				break;	
-			}
-			if (!ShowColour) {
-				this.gameObject.GetComponent<Image> ().sprite = blank;
-			}
-		}
+    public void PickColour()
+    {
+        if (GloableVeribale.TutorialEnabled)
+        {
+            if (GloableVeribale.TutColourNumber == 2)
+            {
+                BlockNumber = 0;
+            
+            }
+            if (GloableVeribale.TutColourNumber == 1)
+            {
+                BlockNumber = 1;
+                GloableVeribale.TutColourNumber += 1;
+            }
+            if (GloableVeribale.TutColourNumber == 0)
+            {
+                BlockNumber = 0;
+                GloableVeribale.TutColourNumber += 1;
+            }
+        }
+        else
+        {
+            ShowColour = false;
+            BlockNumber = 6;
+            //CurrentLevel = GloableVeribale.PlayLevel;
+            while (BlockNumber == 6)
+            {
+                RandomColour = Random.Range(0, 6);
+
+                switch (RandomColour)
+                {
+                    case 0:
+                        if (GloableVeribale.Instance.BlueBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                    case 1:
+                        if (GloableVeribale.Instance.GreenBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                    case 2:
+                        if (GloableVeribale.Instance.OrangeBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                    case 3:
+                        if (GloableVeribale.Instance.PurpleBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                    case 4:
+                        if (GloableVeribale.Instance.YellowBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                    case 5:
+                        if (GloableVeribale.Instance.RedBlock)
+                        {
+                            this.gameObject.GetComponent<Image>().sprite = NewColourChanger.Instance.Colour[RandomColour];
+                            BlockNumber = RandomColour;
+
+                        }
+                        break;
+                }
+                if (!ShowColour)
+                {
+                    this.gameObject.GetComponent<Image>().sprite = blank;
+                }
+            }
 
 
 
 
-	}
+        }
+    }
 }
 
