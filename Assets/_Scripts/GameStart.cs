@@ -434,7 +434,7 @@ public class GameStart : MonoBehaviour
         print("Unlocked Safe: " + GloableVeribale.CompletedLevels);
         GloableVeribale.PlayOn = true;
         GloableVeribale.Instance.GameEnd = true;
-        SceneManager.LoadScene("End", LoadSceneMode.Additive);
+        SceneManager.LoadScene("End");
     }
     void SetStar(int StarNumber)
     {
